@@ -61,6 +61,10 @@ class DatabasePersistence
     query(sql, list_id)
   end
 
+  def disconnect
+    @db.close
+  end
+
   private
   def query(statement, *params)
     @logger.info "#{statement}: #{params}"
@@ -75,8 +79,6 @@ class DatabasePersistence
     end
   end
 
-  def disconnect
-    @db.close
-  end
+
 
 end

@@ -1,5 +1,4 @@
 require "pg"
-require "pry"
 
 class DatabasePersistence
   def initialize(logger)
@@ -30,8 +29,8 @@ class DatabasePersistence
   end
 
   def delete_list(id)
+    query("DELETE FROM todos WHERE todos.list_id = $1", id)
     query("DELETE FROM lists WHERE lists.id = $1", id)
-    query("DELETE FROM todos WHERE todos.list_id = $1")
   end
 
   def update_list_name(id, new_name)

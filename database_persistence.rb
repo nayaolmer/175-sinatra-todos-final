@@ -75,4 +75,8 @@ class DatabasePersistence
     end
   end
 
+  def disconnect
+    @db.close
+  end
+
 end
